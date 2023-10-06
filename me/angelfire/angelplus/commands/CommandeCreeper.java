@@ -36,7 +36,6 @@ public class CommandeCreeper implements CommandExecutor {
 				ItemStack drop = new ItemStack(Material.CREEPER_SPAWN_EGG, 1);
 				//récupère le monde du joueur
 				World world = player.getWorld();
-				//récupère la location du joueur puis drop l'item choisi
 				world.dropItem(player.getLocation(), drop);
 				player.setHealth(player.getHealth() - 3);
 

@@ -28,7 +28,7 @@ public class CommandeChoose implements CommandExecutor {
 		attachment.setPermission(permchose2, true);
 		attachment.setPermission("angelplus.hakim", false);
 		attachment.setPermission("angelplus.claninfo.hakim", false);
-		attachment.setPermission("angelplus.choose", false);
+		attachment.setPermission("angelplus.choose", true);
 	}
 
 	public void setupPermissionsnuageux(Player player) {
@@ -46,7 +46,7 @@ public class CommandeChoose implements CommandExecutor {
 		attachment.setPermission("angelplus.nuageux", false);
 		attachment.setPermission("angelplus.claninfo.nuageux", false);
 		attachment.setPermission(permchose2, true);
-		attachment.setPermission("angelplus.choose", false);
+		attachment.setPermission("angelplus.choose", true);
 	}
 
 	public void setupPermissionshakim(Player player) {
@@ -59,7 +59,7 @@ public class CommandeChoose implements CommandExecutor {
 		PermissionAttachment attachment = this.playerPermissions.get(uuid);
 		String permchose = "angelplus.choose";
 		System.out.print(permchose);
-		attachment.setPermission(permchose, true);
+		attachment.setPermission(permchose, false);
 	}
 
 	public void setupPermissionsadmin(Player player) {
@@ -79,17 +79,19 @@ public class CommandeChoose implements CommandExecutor {
 				//vérifie si l'argument correspond
 				if (hakimounuageuxString.equals("hakim")) {
 					//si le joueur a la perm
-					if (player.hasPermission("angelplus.choose")) {
+					if (!player.hasPermission("angelplus.choose")) {
 						//donne les permissions
 						setupPermissionshakim(player);
 						sender.sendMessage(ChatColor.AQUA + "[AngelPlus] Saumon Fumée");
 					}
+					sender.sendMessage("Désolé tu as déja choisi");
 
 				} else if (hakimounuageuxString.equals("nuageux")) {
-					if (player.hasPermission("angelplus.choose")) {
+					if (!player.hasPermission("angelplus.choose")) {
 						setupPermissionsnuageux(player);
 						sender.sendMessage(ChatColor.AQUA + "[AngelPlus] Gloire au Titan Nuageux !");
 					}
+					sender.sendMessage("Désolé tu as déja choisi");
 
 				} else if (hakimounuageuxString.equals("admin")) {
 
